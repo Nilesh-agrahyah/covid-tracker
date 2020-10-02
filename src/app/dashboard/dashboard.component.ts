@@ -15,6 +15,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
     recovered: 0
   };
 
+  timestamp="";
+
   imageData = [
     { alt: 'confirmed', src: 'assets/images/confirmed.png', name: 'Confirmed Cases', number: this.dashboard.confirmed, bg: 'border-info', txt:'text-info'},
     { alt: 'recovered', src: 'assets/images/recovered.png', name: 'Recovered Cases', number: this.dashboard.recovered, bg: 'border-success', txt:'text-success' },
@@ -35,6 +37,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
           default:
             item.number = res.confirmed.value
         }
+        this.timestamp = res.lastUpdate
       })
     })        
   }
