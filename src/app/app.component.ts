@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CovidTracker } from './app.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'covid19tracker';
+export class AppComponent implements OnInit {
+
+  constructor(private service: CovidTracker) { }
+  ngOnInit() {
+    this.service.getWorldData().subscribe(res => this.service.setData(res))
+  }
 }
