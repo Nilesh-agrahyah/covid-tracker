@@ -9,6 +9,8 @@ import AppRouting from './app.routing';
 import { NavComponent } from './nav/nav.component'
 import { FormsModule } from '@angular/forms';
 import { CountryDataComponent } from './country-data/country-data.component';
+import { NgxUiLoaderModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
+// import {  } from 'ngx-ui-loader/lib/http/ngx-ui-loader-http.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CountryDataComponent } from './country-data/country-data.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    AppRouting
+    AppRouting,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({ showForeground: true })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -36,19 +36,19 @@
 <div style="margin-top:'10vh';" *ngIf="searchValue.length > 0 && searchResult" class="container">
   <div class="card text-center">
     <div class="card-header">
-      <h3>{{searchedCountry}}</h3>
+      <h3>{{searchedCountry | uppercase}}</h3>
     </div>
     <div class="card-body">
       <div class="row">
         <div *ngIf="searchResult.confirmed" class="col">
           <div class="alert alert-primary" role="alert">
-            <p>Confirmed: {{searchResult.confirmed.value}}</p>
+            <h4>Confirmed: {{searchResult.confirmed.value}}</h4>
           </div>
           <div class="alert alert-success" role="alert">
-            <p>Recovered: {{searchResult.recovered.value}}</p>
+            <h4>Recovered: {{searchResult.recovered.value}}</h4>
           </div>
           <div class="alert alert-danger" role="alert">
-            <p>Deaths: {{searchResult.deaths.value}}</p>
+            <h4>Deaths: {{searchResult.deaths.value}}</h4>
           </div>
         </div>
       </div>
