@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Screenshots
 
-![Dashboard](https://raw.githubusercontent.com/NileshVS/covid-tracker/master/screenshots/Home.png)
+![Dashboard](https://raw.githubusercontent.com/NileshVS/covid-tracker/master/screenshots/dashboard.png)
 
 ![Country Search](https://raw.githubusercontent.com/NileshVS/covid-tracker/master/screenshots/country.png)
 
