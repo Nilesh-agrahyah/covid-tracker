@@ -2,6 +2,12 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.
 
+## Screenshots
+
+![Dashboard](https://raw.githubusercontent.com/NileshVS/covid-tracker/master/screenshots/Home.png)
+
+![Country Search](https://raw.githubusercontent.com/NileshVS/covid-tracker/master/screenshots/country.png)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
