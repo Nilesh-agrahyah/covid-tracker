@@ -11,10 +11,10 @@ export class CovidTracker {
         recovered: {value: 0},
         deaths: {value: 0}
     };
-    _searchedCountryData = {};
+    // _searchedCountryData = {};
 
     dataTracker = new BehaviorSubject<any>(this._data);
-    countryDataTracker = new BehaviorSubject<any>(this._searchedCountryData);
+    // countryDataTracker = new BehaviorSubject<any>(this._searchedCountryData);
 
     getData(){
         return this.dataTracker.asObservable()
@@ -32,7 +32,7 @@ export class CovidTracker {
     }
 
     onCountrySearch(country){
-        this.http.get(`https://covid19.mathdro.id/api/countries/${country}`, { headers: this.httpHeader }).subscribe( res => this.countryDataTracker.next(res))
+        return this.http.get(`https://covid19.mathdro.id/api/countries/${country}`, { headers: this.httpHeader, observe: 'response' })
     }
 
     getWorldData() {

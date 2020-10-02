@@ -8,13 +8,15 @@ import { CountryComponent } from './country/country.component';
 import AppRouting from './app.routing';
 import { NavComponent } from './nav/nav.component'
 import { FormsModule } from '@angular/forms';
+import { CountryDataComponent } from './country-data/country-data.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     CountryComponent,
-    NavComponent
+    NavComponent,
+    CountryDataComponent
   ],
   imports: [
     BrowserModule,
