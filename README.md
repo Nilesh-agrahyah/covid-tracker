@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.7.
 
+## [Live Demo](https://nileshvs.github.io/covid-tracker/)
+
 ## Screenshots
 
 ![Dashboard](https://raw.githubusercontent.com/NileshVS/covid-tracker/master/screenshots/dashboard.png)
