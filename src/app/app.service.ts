@@ -7,31 +7,46 @@ import { BehaviorSubject } from 'rxjs';
 export class CovidTracker {
     private httpHeader: HttpHeaders;
     _data = {
-        confirmed: {value: 0},
-        recovered: {value: 0},
-        deaths: {value: 0}
+        confirmed: { value: 0 },
+        recovered: { value: 0 },
+        deaths: { value: 0 }
     };
-    // _searchedCountryData = {};
+    _countries = [];
 
     dataTracker = new BehaviorSubject<any>(this._data);
-    // countryDataTracker = new BehaviorSubject<any>(this._searchedCountryData);
+    countriesTracker = new BehaviorSubject<any>(this._countries);
 
-    getData(){
+    getData() {
         return this.dataTracker.asObservable()
     }
 
-    setData(data){
+    getCountriesData() {
+        return this.countriesTracker.asObservable()
+    }
+
+    setData(data) {
         this.dataTracker.next(data)
     }
 
     constructor(private http: HttpClient) {
         this.httpHeader = new HttpHeaders()
     }
-    refreshWorldData(){
+
+    refreshWorldData() {
         this.getWorldData().subscribe(res => this.setData(res))
     }
 
-    onCountrySearch(country){
+    onCountryDetailedSearch(country, stats) {
+        return this.http.get(`https://covid19.mathdro.id/api/countries/${country}/${stats}`, { headers: this.httpHeader, observe: 'response' })
+    }
+
+    getCountries() {
+        this.http.get("https://covid19.mathdro.id/api/countries", { headers: this.httpHeader }).subscribe((res: any) => {
+            this.countriesTracker.next(res.countries)
+        })
+    }
+
+    onCountrySearch(country) {
         return this.http.get(`https://covid19.mathdro.id/api/countries/${country}`, { headers: this.httpHeader, observe: 'response' })
     }
 

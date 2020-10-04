@@ -13,7 +13,7 @@
             class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/country" routerLinkActive="active">Country</a>
+        <a class="nav-link" routerLink="/country" routerLinkActive="active">Country State Data</a>
       </li>
     </ul>
 
@@ -33,7 +33,7 @@
   </div>
 </nav>
 
-<div style="margin-top:'10vh';" *ngIf="searchValue.length > 0 && searchResult" class="container">
+<div style="margin-top:'12vh';" *ngIf="searchValue.length > 0 && searchResult" class="container">
   <div class="card text-center">
     <div class="card-header">
       <h3>{{searchedCountry | uppercase}}</h3>

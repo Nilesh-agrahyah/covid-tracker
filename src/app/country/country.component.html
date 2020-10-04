@@ -1,1 +1,76 @@
-<p>country works!</p>
+<div class="container-fluid">
+    <div class="card text-center" [ngClass]="cardBorderColor">
+        <div class="card-header"><label>Country Wise State Data</label></div>
+        <div class="card-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <label>Select Country:</label>
+                        <select [(ngModel)]="country" class="form-control" id="selectCountry">
+                            <option selected value="">Select a country</option>
+                            <option *ngFor="let country of countriesList" value="{{country.name}}">{{country.name}}</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <label>Select Category:</label>
+                        <select [(ngModel)]="category" class="form-control" id="selectCategory">
+                            <option selected value="">Select a category</option>
+                            <option value="confirmed">Confirmed</option>
+                            <option value="recovered">Recovered</option>
+                            <option value="deaths">Deaths</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col">
+                        <div *ngIf="country == '' || category == ''" class="alert alert-warning" role="alert">
+                            Select a country and category to continue!
+                        </div>
+                        <button [disabled]="country == '' || category == ''"
+                            class="btn btn-success btn-block" (click)="search()">
+                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+                                <path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+                              </svg>
+                            Search</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+    <div *ngIf="result.length > 0" class="card text-center" [ngClass]="cardBorderColor">
+        <div class="card-header"><label>Search Results for {{result[0].countryRegion}}: {{result.length}}</label></div>
+        <div class="card-title">Last updated: {{result[0].lastUpdate | date:'full'}}</div>
+        <div class="card-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <div *ngFor="let state of result" class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+                        <div style="margin-bottom: 20px;" class="card text-white" [ngClass]="cardBackgroundColor">
+                            <div class="card-header"><label>{{state.combinedKey || NA}}</label></div>
+                            <div class="card-body text-white">
+                                <label>Confirmed:</label>                                
+                                <p> {{state.confirmed}}</p>
+                                <label>Active:</label>
+                                <p>{{state.active}}</p>
+                                <label>Recovered:</label>
+                                <p>{{state.recovered}}</p>
+                                <label>Deaths:</label>
+                                <p>{{state.deaths}}</p>
+                                <label>Incident rate:</label>
+                                <p>{{state.incidentRate}} %</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div *ngIf="country !== '' && category !== '' && result.length == 0" class="card text-center">
+        <div class="card-body">
+            <p style="font-weight: bold;">No Data Found</p>
+        </div>
+    </div> -->
+</div>
